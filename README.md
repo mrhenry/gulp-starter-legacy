@@ -12,5 +12,5 @@ $ rm -Rf ./gulp-starter-master*
 $ script/config-git
 ```
 
-Update ./gulp/config.js
+Update ```./gulp/config.js``
 
