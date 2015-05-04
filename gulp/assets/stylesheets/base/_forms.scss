@@ -31,7 +31,7 @@
 
   &.has-error,
   .has-error & {
-    @include animation(shake 330ms);
+    animation: shake 330ms;
     border-color: black;
     border-left-width: 5px;
   }
@@ -39,10 +39,10 @@
   &.is-inline {
     width: auto;
   }
-}
 
-@include input-placeholder {
-  color: gray;
+  &::placeholder {
+    color: gray;
+  }
 }
 
 

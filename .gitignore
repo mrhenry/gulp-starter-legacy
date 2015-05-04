@@ -21,3 +21,6 @@
 
 # Ingore bower modules
 /gulp/assets/vendor
+
+# Ignore uploads
+wp-content/uploads*
