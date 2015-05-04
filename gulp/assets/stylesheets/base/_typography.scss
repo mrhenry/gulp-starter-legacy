@@ -1,0 +1,54 @@
+// Define your default body text styles here
+//
+// Please use header elements semantically, not based on their style
+// If your header style doesn't fit the default, override it in a module
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+p {
+
+}
+
+a {
+
+  &:hover {
+    color: blue;
+    border-color: blue;
+  }
+}
+
+blockquote {
+
+  p {
+
+    &:before {
+      content: "“";
+    }
+
+    &:after {
+      content: "”";
+    }
+  }
+
+  footer {
+
+  }
+}

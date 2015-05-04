@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "--> Install merge driver 'ours'"
+git config merge.ours.name '"always keep ours" merge driver'
+git config merge.ours.driver 'touch %A'
+
+echo "--> Install post-merge hook"
+touch ./.git/hooks/post-merge
+chmod u+x ./.git/hooks/post-merge
+echo -e "#!/usr/bin/env bash\n\necho \"--> Create a new build after merge\"\n\ngulp build\ngit add .\ngit commit -m \"New build after merge\"" > ./.git/hooks/post-merge
+
+echo "--> Done!"

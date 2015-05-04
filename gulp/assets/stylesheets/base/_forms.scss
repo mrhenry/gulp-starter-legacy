@@ -1,0 +1,302 @@
+//
+// Input field
+//
+.form-input {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 0;
+  border: 1px solid black;
+  box-sizing: border-box;
+  color: black;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  line-height: em(22, 16);
+  padding: 2px 5px;
+  position: relative;
+  outline: none;
+  transition: border 300ms;
+  width: 100%;
+
+  &:focus {
+    border: 1px solid gray;
+  }
+
+  &[disabled],
+  .is-disabled & {
+    background-color: white;
+    opacity: 0.5;
+  }
+
+  &.has-error,
+  .has-error & {
+    @include animation(shake 330ms);
+    border-color: black;
+    border-left-width: 5px;
+  }
+
+  &.is-inline {
+    width: auto;
+  }
+}
+
+@include input-placeholder {
+  color: gray;
+}
+
+
+//
+// Label
+//
+.form-label {
+  color: black;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1em;
+  text-transform: uppercase;
+  transition: color 300ms;
+  width: 100%;
+
+  .is-disabled & {
+    color: gray;
+  }
+
+  &.is-inline {
+    width: auto;
+  }
+}
+
+
+//
+// Form input error message
+//
+.form-input-error {
+  color: black;
+  font-size: 12px;
+}
+
+
+//
+// Label + input grouped horizontally
+//
+.form-group {
+
+  .form-label {
+    text-align: right;
+  }
+
+  .form-input {
+
+  }
+
+  .form-input-error {
+
+  }
+
+  &.is-pushed {
+
+  }
+
+  &.is-v-padded {
+    padding-bottom: 20px;
+    padding-top: 20px
+  }
+}
+
+
+//
+// Form list horizontally
+//
+.form-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+
+//
+// Select
+//
+.form-select {
+  border: 1px solid black;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: border 300ms;
+
+  .is-disabled & {
+    opacity: 0.5;
+  }
+
+  &:before {
+    background-color: black;
+    color: white;
+    content: "▼";
+    height: 22px;
+    left: 2px;
+    line-height: 22px;
+    position: absolute;
+    text-align: center;
+    transition: background-color 300ms;
+    top: 2px;
+    width: 22px;
+    z-index: 0;
+
+    .is-disabled & {
+
+    }
+  }
+
+  select {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    color: black;
+    display: block;
+    font-size: 16px;
+    height: 26px;
+    min-width: 130px;
+    padding: 0 0 0 28px;
+    position: relative;
+    text-transform: uppercase;
+    width: 110%;
+    z-index: 10;
+
+    &[disabled],
+    .is-disabled & {
+      color: black;
+    }
+  }
+}
+
+
+//
+// Checkbox / Radio
+//
+// @example
+// <div class="form-checkbox">
+//   <input type="checkbox" name="exampleInput3" id="exampleInput3">
+//   <label for="exampleInput3">
+//     .form-checkbox
+//   </label>
+// </div>
+//
+.form-checkbox,
+.form-radio {
+
+  .form-label {
+    cursor: pointer;
+    display: inline-block;
+    float: none;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    text-transform: none;
+    width: auto;
+  }
+
+  // Hide the real one
+  // Because we use CSS3 syntax, this degrades perfectly on older browsers
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked,
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    visibility: hidden;
+
+    + label:not(.with-icon) {
+      padding: 0 0 0 25px;
+    }
+  }
+
+  // The box
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    border: 1px solid gray;
+    content: "";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 6px;
+    width: 15px;
+
+    .has-error & {
+      border-color: black;
+    }
+  }
+
+  // The check
+  [type="checkbox"]:not(:checked) + label:after,
+  [type="checkbox"]:checked + label:after {
+    color: black;
+    font-size: 20px;
+    left: 2px;
+    position: absolute;
+    top: -3px;
+  }
+
+  [type="checkbox"]:not(:checked) + label:after {
+    content: "";
+  }
+
+  [type="checkbox"]:checked + label:after {
+    content: "✔";
+  }
+
+  // The radio bullet box
+  [type="radio"]:not(:checked) + label:not(.with-icon):before,
+  [type="radio"]:checked + label:not(.with-icon):before {
+    border: 1px solid gray;
+    border-radius: 50%;
+    content: "";
+    height: 11px;
+    left: 2px;
+    position: absolute;
+    top: 9px;
+    transition: background-color 100ms, border-color 100ms;
+    width: 11px;
+  }
+
+
+  // The radio bullet
+  [type="radio"]:not(:checked) + label:not(.with-icon):after,
+  [type="radio"]:checked + label:not(.with-icon):after {
+    border-radius: 50%;
+    color: black;
+    content: "";
+    height: 5px;
+    left: 5px;
+    position: absolute;
+    top: 12px;
+    width: 5px;
+  }
+
+  [type="radio"]:not(:checked) + label:not(.with-icon):after {
+    background-color: transparent;
+  }
+
+  [type="radio"]:checked + label:not(.with-icon):after {
+    background-color: black;
+  }
+
+  // Radio with icon as label
+  [type="radio"]:not(:checked) + label.with-icon,
+  [type="radio"]:checked + label.with-icon {
+    font-size: 1rem;
+  }
+
+  [type="radio"]:not(:checked) + label.with-icon {
+    color: black;
+  }
+
+  [type="radio"]:checked + label.with-icon {
+    color: black;
+  }
+}
+

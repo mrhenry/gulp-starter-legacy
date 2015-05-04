@@ -1,0 +1,17 @@
+.u-hide-mobile {
+  @include breakpoint-up-to ($min-width-small) {
+    display: none;
+  }
+}
+
+.u-hide-tablet {
+  @include breakpoint-between ($min-width-small, $min-width-medium) {
+    display: none;
+  }
+}
+
+.u-hide-desktop {
+  @include breakpoint-from ($min-width-medium) {
+    display: none;
+  }
+}

@@ -1,0 +1,86 @@
+// Gray shorthand
+//
+// @param value (0...255)
+// @param transparency (0...1)
+@function gray($value, $transparency: 1) {
+  @return rgba($value, $value, $value, $transparency);
+}
+
+
+// Stretch is a mixin to position absolute an element in another
+// element top to bottom, left to right
+//
+// @param $offset Offset from the edge
+@mixin stretch($offset: 0) {
+  bottom: $offset;
+  left: $offset;
+  position: absolute;
+  right: $offset;
+  top: $offset;
+}
+
+
+// Generates a fluid grid from fixed dimensions
+// Should be applied on containing element
+//
+// @param string $child-selector      Child selector for the grid items
+// @param int    $container-width     Container width in pixels from design
+// @param int    $columns             Amount of columns
+// @param int    $horizontal-gutter   Horizontal gutter in pixels from design
+// @param int    $vertical-gutter     (optional) Vertical gutter in pixels from design
+@mixin grid ($child-selector, $container-width, $columns, $horizontal-gutter, $vertical-gutter: 0) {
+  $column-width: $container-width / $columns;
+  $item-width: percentage(($column-width - $horizontal-gutter) / $container-width);
+  $gutter-width: (100% - $item-width * $columns) / $columns;
+
+  font-size: 0;
+
+  @if $vertical-gutter != 0 {
+    margin-bottom: $vertical-gutter * -1;
+  }
+
+  margin-left: $gutter-width * -0.5;
+  margin-right: $gutter-width * -0.5;
+  padding: 0;
+
+  #{$child-selector} {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+
+    @if $vertical-gutter != 0 {
+      margin-bottom: $vertical-gutter;
+    }
+
+    margin-left: $gutter-width * 0.5;
+    margin-right: $gutter-width * 0.5;
+    vertical-align: top;
+    width: $item-width;
+  }
+}
+
+
+// Breakpoint helpers
+@mixin breakpoint-from($min-width) {
+  @media only screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up-to($max-width) {
+  @media only screen and (max-width: $max-width - 1) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($min-width, $max-width) {
+  @media only screen and (min-width: $min-width) and (max-width: $max-width - 1) {
+    @content;
+  }
+}
+
+@mixin breakpoint-only($breakpoint) {
+  @media only screen and (min-width: $breakpoint) and (max-width: $breakpoint) {
+    @content;
+  }
+}

@@ -1,0 +1,113 @@
+@import 'base/variables';
+@import 'base/mixins';
+
+body {
+  background-color: white !important;
+  padding: 0 0 100px 0;
+}
+
+code {
+  font-family: 'Monaco', monospace;
+  color: #666;
+}
+
+.sg-main-title,
+.sg-section-title {
+  color: gray(200);
+  font-family: sans-serif;
+  line-height: 2em;
+  margin: 2em 0;
+  text-align: center;
+
+  a {
+    color: gray(200);
+    text-decoration: none;
+  }
+}
+
+.sg-main-title {
+  font-size: 24px;
+}
+
+.sg-background {
+  background-color: gray(240);
+  padding: 1.5rem 0;
+}
+
+.sg-section-title {
+  border-bottom: 1px dotted gray(200);
+  font-size: 18px;
+}
+
+.sg-section-subtitle {
+  color: gray(100);
+  font-family: 'Monaco', monospace;
+  font-weight: normal;
+  text-align: center;
+}
+
+.sg-centered {
+  text-align: center;
+}
+
+.sg-placeholder {
+  background-color: gray(230);
+  outline: 1px solid gray(200);
+  padding: 25px;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.sg-outlined {
+  outline: 1px dotted gray(200);
+}
+
+.sg-colors,
+.sg-icons {
+  text-align: center;
+
+  dd {
+    display: inline-block;
+    margin: 10px 0 10px 10px;
+    vertical-align: middle;
+  }
+
+  dt {
+    color: gray(100);
+    display: inline-block;
+    font-family: 'Monaco', monospace;
+    line-height: 30px;
+    margin: 10px 10px 10px 0;
+    padding: 0 0 0 7px;
+    vertical-align: middle;
+  }
+}
+
+.sg-colors {
+
+  dd {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+
+//    &.COLOR {
+//      background-color: $COLOR;
+//      border: 1px solid gray(240);
+//    }
+
+  }
+}
+
+.sg-icons {
+  dd {
+    color: black;
+    font-size: 36px;
+    position: relative;
+    top: 3px;
+  }
+
+  dt {
+    margin-right: 30px;
+    vertical-align: middle;
+  }
+}
