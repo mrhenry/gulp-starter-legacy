@@ -1,6 +1,13 @@
+//
+// Editable configs
+//
 var clientName    = '';
 var publicAssets  = './public/assets'; // Change if your build location is different
 
+
+// -----------------------------------------------------------------------------
+// Normally you don't have to edit below
+// -----------------------------------------------------------------------------
 
 var sourceFiles   = './gulp/assets';
 var exec          = require('child_process').execSync;
