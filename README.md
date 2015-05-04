@@ -8,9 +8,9 @@ Front end build tools. Heavily inspired by [https://github.com/greypants/gulp-st
 $ curl -L https://github.com/mrhenry/gulp-starter/archive/master.zip > gulp-starter-master.zip
 $ unzip gulp-starter-master.zip
 $ cp -R  gulp-starter-master/* ./
-$ cp -R  gulp-starter-master/.*
+$ cp -R  gulp-starter-master/.[^.]* ./
 $ rm -Rf ./gulp-starter-master*
-$ script/config-gi
+$ script/config-git
 $ bower install
 $ npm install
 ```

@@ -9,9 +9,6 @@
     "type": "git",
     "url": ""
   },
-  "scripts": {
-    "postinstall": "gulp watch"
-  },
   "dependencies": {
     "babelify": "^6.0.2",
     "browser-sync": "~2.6.4",

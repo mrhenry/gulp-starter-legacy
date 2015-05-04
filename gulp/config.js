@@ -69,8 +69,7 @@ module.exports = {
         sourceFiles + '/javascripts/application.js'
       ],
       dest: publicAssets + '/javascripts',
-      outputName: 'application.js',
-      external: ['jquery']
+      outputName: 'application.js'
     }]
   },
 };
