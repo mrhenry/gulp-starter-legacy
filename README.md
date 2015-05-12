@@ -2,18 +2,13 @@
 
 Front end build tools. Heavily inspired by [https://github.com/greypants/gulp-starter](https://github.com/greypants/gulp-starter).
 
-## Install & config
+## Install
 
 ```
-$ curl -L https://github.com/mrhenry/gulp-starter/archive/master.zip > gulp-starter-master.zip
-$ unzip gulp-starter-master.zip
-$ cp -R  gulp-starter-master/* ./
-$ cp -R  gulp-starter-master/.[^.]* ./
-$ rm -Rf ./gulp-starter-master*
-$ script/config-git
-$ bower install
-$ npm install
+$ bash <(curl -s https://raw.githubusercontent.com/mrhenry/gulp-starter/master/script/install)
 ```
 
-Update `./gulp/config.js`
+## Configuration
+
+Do your project specific configuration in this file: `./gulp/config.js`
 
