@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+curl -L https://github.com/mrhenry/gulp-starter/archive/master.zip > gulp-starter-master.zip
+unzip gulp-starter-master.zip
+cp -R  gulp-starter-master/* ./
+cp -R  gulp-starter-master/.[^.]* ./
+rm -Rf ./gulp-starter-master*
+script/config-git
+bower install
+npm install
