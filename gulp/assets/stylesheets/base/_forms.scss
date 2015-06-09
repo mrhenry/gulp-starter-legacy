@@ -1,23 +1,35 @@
 //
+// Reset Firefox default button padding
+//
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+//
 // Input field
 //
 .form-input {
   -webkit-appearance: none;
   appearance: none;
   box-shadow: 0;
-  border: 1px solid black;
+  border: 1px solid gray;
   box-sizing: border-box;
   color: black;
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.06em;
-  line-height: em(22, 16);
-  padding: 2px 5px;
+  line-height: 1.375em;
+  padding: 13px 15px;
   position: relative;
   outline: none;
   transition: border 300ms;
   width: 100%;
+
+  &::placeholder {
+    color: gray;
+  }
 
   &:focus {
     border: 1px solid gray;
@@ -26,25 +38,24 @@
   &[disabled],
   .is-disabled & {
     background-color: white;
+    cursor: not-allowed;
     opacity: 0.5;
   }
 
   &.has-error,
   .has-error & {
     animation: shake 330ms;
-    border-color: black;
-    border-left-width: 5px;
+    border-color: red;
+
+    &::placeholder {
+      color: red;
+    }
   }
 
   &.is-inline {
     width: auto;
   }
-
-  &::placeholder {
-    color: gray;
-  }
 }
-
 
 //
 // Label
@@ -68,7 +79,6 @@
   }
 }
 
-
 //
 // Form input error message
 //
@@ -76,7 +86,6 @@
   color: black;
   font-size: 12px;
 }
-
 
 //
 // Label + input grouped horizontally
@@ -94,17 +103,7 @@
   .form-input-error {
 
   }
-
-  &.is-pushed {
-
-  }
-
-  &.is-v-padded {
-    padding-bottom: 20px;
-    padding-top: 20px
-  }
 }
-
 
 //
 // Form list horizontally
@@ -119,9 +118,15 @@
   }
 }
 
-
 //
 // Select
+//
+// @example
+// <div class="form-select">
+//   <select>
+//     <option value="value">title</option>
+//   </select>
+// </div>
 //
 .form-select {
   border: 1px solid black;
@@ -175,7 +180,6 @@
   }
 }
 
-
 //
 // Checkbox / Radio
 //
@@ -220,11 +224,12 @@
   [type="checkbox"]:checked + label:before {
     border: 1px solid gray;
     content: "";
-    height: 15px;
+    height: 16px;
     left: 0;
     position: absolute;
-    top: 6px;
-    width: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
 
     .has-error & {
       border-color: black;
@@ -236,9 +241,10 @@
   [type="checkbox"]:checked + label:after {
     color: black;
     font-size: 20px;
-    left: 2px;
+    left: 4px;
     position: absolute;
-    top: -3px;
+    top: 50%;
+    transform: translateY(-55%);
   }
 
   [type="checkbox"]:not(:checked) + label:after {
@@ -255,12 +261,13 @@
     border: 1px solid gray;
     border-radius: 50%;
     content: "";
-    height: 11px;
-    left: 2px;
+    height: 16px;
+    left: 0;
     position: absolute;
-    top: 9px;
+    top: 50%;
     transition: background-color 100ms, border-color 100ms;
-    width: 11px;
+    transform: translateY(-50%);
+    width: 16px;
   }
 
 
@@ -268,13 +275,13 @@
   [type="radio"]:not(:checked) + label:not(.with-icon):after,
   [type="radio"]:checked + label:not(.with-icon):after {
     border-radius: 50%;
-    color: black;
     content: "";
-    height: 5px;
+    height: 8px;
     left: 5px;
     position: absolute;
-    top: 12px;
-    width: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
   }
 
   [type="radio"]:not(:checked) + label:not(.with-icon):after {

@@ -66,27 +66,32 @@ code {
 .sg-icons {
   text-align: center;
 
-  dd {
+  i {
     display: inline-block;
     margin: 10px 0 10px 10px;
     vertical-align: middle;
   }
 
-  dt {
+  li {
     color: gray(100);
     display: inline-block;
     font-family: 'Monaco', monospace;
+    font-size: 14px;
     line-height: 30px;
-    margin: 10px 10px 10px 0;
     padding: 0 0 0 7px;
+    text-align: left;
     vertical-align: middle;
+    width: 200px;
   }
 }
 
 .sg-colors {
+  margin: 1rem 0;
+  padding: 0;
 
-  dd {
+  i {
     border-radius: 50%;
+    display: inline-block;
     height: 30px;
     width: 30px;
 
@@ -94,19 +99,19 @@ code {
 //      background-color: $COLOR;
 //      border: 1px solid gray(240);
 //    }
-
   }
 }
 
 .sg-icons {
-  dd {
+
+  i {
     color: black;
     font-size: 36px;
     position: relative;
     top: 3px;
   }
 
-  dt {
+  li {
     margin-right: 30px;
     vertical-align: middle;
   }
