@@ -16,7 +16,10 @@ var mergeStream  = require('merge-stream');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
+var buffer       = require('vinyl-buffer');
 var source       = require('vinyl-source-stream');
+var uglify       = require('gulp-uglify');
+var rename       = require('gulp-rename');
 var config       = require('../config').browserify;
 var _            = require('lodash');
 
@@ -48,6 +51,10 @@ var browserifyTask = function(devMode) {
         // desired output filename here.
         .pipe(source(bundleConfig.outputName))
         // Specify the output destination
+        .pipe(gulp.dest(bundleConfig.dest))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(bundleConfig.dest))
         .pipe(browserSync.reload({
           stream: true
