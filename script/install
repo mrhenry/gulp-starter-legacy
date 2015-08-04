@@ -41,6 +41,7 @@ jspm install
 
 echo -e "\n--> Remove install files\n"
 rm -Rf ./gulp-starter-master*
+rm -Rf ./bootstrap-public*
 rm ./script/install
 
 echo -e "\n--> That's it folks!\n"
