@@ -1,7 +1,7 @@
 //
 // Editable configs
 //
-var clientName    = '';
+var clientName    = 'hello-world';
 var publicAssets  = './public/assets'; // Change if your build location is different
 
 
@@ -60,16 +60,5 @@ module.exports = {
       appendCodepoints: true,
       normalize: false
     }
-  },
-  browserify: {
-    // A separate bundle will be generated for each
-    // bundle config in the list below
-    bundleConfigs: [{
-      entries: [
-        sourceFiles + '/javascripts/application.js'
-      ],
-      dest: publicAssets + '/javascripts',
-      outputName: 'application.js'
-    }]
-  },
+  }
 };

@@ -10,17 +10,38 @@ echo -e "\n--> Copy files\n"
 cp -R  gulp-starter-master/* ./
 cp -R  gulp-starter-master/.[^.]* ./
 
+echo -e "\n--> Bootstrap public folder\n"
+if [ -f wp-config.php ]
+then
+  PROJECT_NAME=${PWD##*/}
+  PROJECT_NAME=${PROJECT_NAME/wp_/''}
+
+  if [ ! -d wp-content/themes/$PROJECT_NAME ]
+  then
+    mkdir -p $PROJECT_NAME
+  fi
+
+  ln -sfvn wp-content/themes/$PROJECT_NAME public
+
+else
+  mkdir -p public
+
+fi
+
+cp -R bootstrap-public/* public/
+
 echo -e "\n--> Configure GIT\n"
 script/config-git
-
-echo -e "\n--> Install Bower componentes\n"
-bower install
 
 echo -e "\n--> Install node modules\n"
 npm install
 
+echo -e "\n--> Install jspm\n"
+jspm install
+
 echo -e "\n--> Remove install files\n"
 rm -Rf ./gulp-starter-master*
+rm -Rf ./bootstrap-public*
 rm ./script/install
 
 echo -e "\n--> That's it folks!\n"
