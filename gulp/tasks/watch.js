@@ -12,5 +12,5 @@ gulp.task('watch', ['images', 'iconFont', 'sass', 'fonts', 'jspm','browserSync']
   watch(config.images.src, function() { gulp.start('images'); });
   watch(config.fonts.src, function() { gulp.start('fonts'); });
   watch(config.iconFont.src, function() { gulp.start('iconFont'); });
-  watch('public/assets/app/**/*.js', function() { gulp.start('jspm'); });
+  watch('public/assets/**/*.js', function() { gulp.start('jspm'); });
 });
