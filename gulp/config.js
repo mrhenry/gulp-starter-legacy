@@ -14,16 +14,6 @@ var exec          = require('child_process').execSync;
 
 module.exports = {
   publicAssets: publicAssets,
-  browserSync: {
-    proxy: 'client-' + clientName + '.dev',
-    host: (function () {
-      return exec('ifconfig | grep broadcast | cut -d: -f2 | cut -d" " -f2').toString().replace(/\s*/gi, '');
-    }()),
-    files: ['./app/views/**', './public/assets/.', './wp-content/themes/**'],
-    xip: true,
-    open: false,
-    port: 3000
-  },
   sass: {
     src: [
       sourceFiles + '/stylesheets/*.scss',

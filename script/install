@@ -7,6 +7,7 @@ echo -e "\n--> Extract\n"
 unzip gulp-starter-master.zip
 
 echo -e "\n--> Copy files\n"
+rm gulp-starter/README.md
 cp -R  gulp-starter-master/* ./
 cp -R  gulp-starter-master/.[^.]* ./
 
