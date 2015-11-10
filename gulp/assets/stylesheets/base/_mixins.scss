@@ -61,9 +61,17 @@
 
 
 // Breakpoint helpers
-@mixin breakpoint-from($min-width) {
-  @media only screen and (min-width: $min-width) {
-    @content;
+@mixin breakpoint-from($min-width, $min-height: auto) {
+  @if $min-height == auto {
+    @media only screen and (min-width: $min-width) {
+      @content;
+    }
+
+  } @else {
+    @media only screen and (min-width: $min-width) and (min-height: $min-height) {
+      @content;
+    }
+
   }
 }
 
